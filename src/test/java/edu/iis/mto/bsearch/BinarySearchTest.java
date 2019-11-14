@@ -46,4 +46,11 @@ public class BinarySearchTest {
         SearchResult result = BinarySearch.search(key,set);
         assertEquals(result.getPosition(),2);
     }
+
+    @Test
+    public void searchInMultiSeqNotFound() {
+        int key = 28;
+        int[] set = {25,26,27};
+        assertFalse(BinarySearch.search(key,set).isFound());
+    }
 }
