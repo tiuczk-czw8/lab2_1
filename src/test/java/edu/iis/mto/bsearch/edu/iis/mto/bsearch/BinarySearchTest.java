@@ -27,7 +27,7 @@ public class BinarySearchTest {
 	@Test 
 	public void SearchElementNotInSequenceLength1() {
 		int key = 3;
-		int[] seq = new int[] {3};
+		int[] seq = new int[] {4};
 		
 		SearchResult result = BinarySearch.search(key, seq);
 		
@@ -51,7 +51,7 @@ public class BinarySearchTest {
 	@Test
 	public void searchElementIsLastInSequenceLengthGreaterThan1() {
 		int key = 102;
-		int[ seq = new int[] {3,21,100,key};
+		int[] seq = new int[] {3,21,100,key};
 		int index = 3;
 		
 		SearchResult result = BinarySearch.search(key, seq);
@@ -64,7 +64,7 @@ public class BinarySearchTest {
 	@Test
 	public void searchElementIsInMiddleInSequenceLengthGreaterThan1() {
 		int key = 102;
-		int[ seq = new int[] {3,key,200};
+		int[] seq = new int[] {3,key,200};
 		int index = 1;
 		
 		SearchResult result = BinarySearch.search(key, seq);
@@ -83,7 +83,5 @@ public class BinarySearchTest {
 		
 		assertThat(result.isFound(), Matchers.equalTo(false));
 	}
-	
-
-	
+		
 }
