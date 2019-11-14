@@ -1,6 +1,7 @@
 package edu.iis.mto.bsearch;
 
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,6 +12,6 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {25};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertTrue(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
 }
