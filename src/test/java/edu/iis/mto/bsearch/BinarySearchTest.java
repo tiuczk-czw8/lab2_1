@@ -1,6 +1,7 @@
 package edu.iis.mto.bsearch;
 
 import org.graalvm.compiler.graph.spi.Canonicalizable;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,14 +12,14 @@ public class BinarySearchTest {
     public void searchInSeqTrue() {
         int key = 25;
         int[] seq={25};
-        assertTrue(BinarySearch.search(key,seq).isFound());
+        assertThat(BinarySearch.search(key,seq).isFound(), Matchers.equalTo(true));
     }
 
     @Test
     public void searchInSeqFalse() {
         int key = 24;
         int[] seq = {25};
-        assertFalse(BinarySearch.search(key,seq).isFound());
+        assertThat(BinarySearch.search(key,seq).isFound(), Matchers.equalTo(false));
     }
 
     @Test
@@ -27,7 +28,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] set = {25,26,27};
         SearchResult result = BinarySearch.search(key,set);
-        assertEquals(result.getPosition(),1);
+        assertThat(result.getPosition(),Matchers.equalTo(1));
     }
 
     @Test
@@ -36,7 +37,7 @@ public class BinarySearchTest {
         int key = 27;
         int[] set = {25,26,27};
         SearchResult result = BinarySearch.search(key,set);
-        assertEquals(result.getPosition(),3);
+        assertThat(result.getPosition(),Matchers.equalTo(3));
     }
 
     @Test
@@ -44,13 +45,15 @@ public class BinarySearchTest {
         int key = 26;
         int[] set = {25,26,27};
         SearchResult result = BinarySearch.search(key,set);
-        assertEquals(result.getPosition(),2);
+        assertThat(result.getPosition(),Matchers.equalTo(2));
     }
 
     @Test
     public void searchInMultiSeqNotFound() {
         int key = 28;
         int[] set = {25,26,27};
-        assertFalse(BinarySearch.search(key,set).isFound());
+        assertThat(BinarySearch.search(key,set).isFound(), Matchers.equalTo(false));
     }
+
+
 }
