@@ -9,9 +9,18 @@ public class BinarySearchTest {
 
     @Test
     public void searchSingleElementTrue() {
-        int key = 25;
-        int[] seq = {25};
+        int key = 10;
+        int[] seq = {10};
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
+
+    @Test
+    public void searchSingleElementNotFound() {
+        int key = 10;
+        int[] seq = {7};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
+    }
+
 }
