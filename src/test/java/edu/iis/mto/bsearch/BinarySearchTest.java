@@ -4,9 +4,13 @@ package edu.iis.mto.bsearch;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-class BinarySearchTest {
+public class BinarySearchTest {
 
     @Test
-    void search() {
+    public void searchSingleElementTrue() {
+        int key = 25;
+        int[] seq = {25};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertTrue(searchResult.isFound());
     }
 }
