@@ -35,16 +35,6 @@ public class BinarySearchTest {
 		Assert.assertEquals(-1,result.getPosition());
 	}
 	
-	@Test
-	public void searchElementNotInSequenceLengthGreaterThan1() {
-		int key = 10;
-		int[] seq = {21,3,100};
-		
-		SearchResult result = BinarySearch.search(key, seq);
-		
-		assertThat(result.isFound(), Matchers.equalTo(false));
-	}
-	
 	@Test 
 	public void searchElementIsFirstInSequenceLengthGreaterThan1() {
 		int key = 4;
@@ -70,6 +60,30 @@ public class BinarySearchTest {
 		Assert.assertEquals(index,result.getPosition());
 		Assert.assertEquals(key, seq[index]);
 	}
+	
+	@Test
+	public void searchElementIsInMiddleInSequenceLengthGreaterThan1() {
+		int key = 102;
+		int[ seq = new int[] {3,key,200};
+		int index = 1;
+		
+		SearchResult result = BinarySearch.search(key, seq);
+		
+		Assert.assertTrue(result.isFound());
+		Assert.assertEquals(index,result.getPosition());
+		Assert.assertEquals(key, seq[index]);
+	}
+	
+	@Test
+	public void searchElementNotInSequenceLengthGreaterThan1() {
+		int key = 10;
+		int[] seq = {21,3,100};
+		
+		SearchResult result = BinarySearch.search(key, seq);
+		
+		assertThat(result.isFound(), Matchers.equalTo(false));
+	}
+	
 
 	
 }
