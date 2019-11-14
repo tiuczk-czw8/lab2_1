@@ -1,6 +1,7 @@
 package edu.iis.mto.bsearch;
 
 import org.junit.Test;
+import org.hamcrest.Matchers;
 import static org.junit.Assert.*;
 
 public class BinarySearchTest {
@@ -10,7 +11,8 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {25};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertTrue(searchResult.isFound());
+//        assertTrue(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
 
     @Test
@@ -18,7 +20,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {24};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertFalse(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
 
     @Test
@@ -26,7 +28,7 @@ public class BinarySearchTest {
         int key = 24;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), 1);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
     }
 
     @Test
@@ -34,7 +36,7 @@ public class BinarySearchTest {
         int key = 27;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), 3);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(3));
     }
 
     @Test
@@ -42,7 +44,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), 2);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(2));
     }
 
     @Test
@@ -50,6 +52,13 @@ public class BinarySearchTest {
         int key = 29;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), -1);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void isSeqSizeHigherThanZero() {
+        int key = 1;
+        int[] seq = {};
+        SearchResult searchResult = BinarySearch.search(key, seq);
     }
 }
