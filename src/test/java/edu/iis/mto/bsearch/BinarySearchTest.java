@@ -20,4 +20,12 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertFalse(searchResult.isFound());
     }
+
+    @Test
+    public void searchFirstElement() {
+        int key = 24;
+        int[] seq = {24, 25, 27};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(searchResult.getPosition(), 1);
+    }
 }
