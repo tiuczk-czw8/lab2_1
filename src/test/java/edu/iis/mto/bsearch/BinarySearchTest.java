@@ -39,5 +39,11 @@ public class BinarySearchTest {
         assertEquals(result.getPosition(),3);
     }
 
-
+    @Test
+    public void searchInMultiSeqMiddle() {
+        int key = 26;
+        int[] set = {25,26,27};
+        SearchResult result = BinarySearch.search(key,set);
+        assertEquals(result.getPosition(),2);
+    }
 }
