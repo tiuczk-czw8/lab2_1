@@ -1,8 +1,8 @@
 package edu.iis.mto.bsearch;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class BinarySearchTest {
 
@@ -20,6 +20,16 @@ public class BinarySearchTest {
         assertFalse(BinarySearch.search(key,seq).isFound());
     }
 
-    
+    @Test
+    public void searchInMultiSeqFirst()
+    {
+        int key = 25;
+        int[] set = {25,26,27};
+        SearchResult result = BinarySearch.search(key,set);
+        assertEquals(result.getPosition(),1);
+    }
+
+
+
 
 }
