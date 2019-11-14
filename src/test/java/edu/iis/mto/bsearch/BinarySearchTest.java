@@ -57,4 +57,12 @@ public class BinarySearchTest {
 
     }
 
+    @Test
+    public void isSeqEmpty(){
+        int key = 10;
+        int [] seq={};
+        SearchResult searchResult = BinarySearch.search(key,seq);
+        assertThat(seq.length,Matchers.equalTo(0));
+    }
+
 }
