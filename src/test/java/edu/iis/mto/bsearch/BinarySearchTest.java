@@ -1,33 +1,26 @@
 package edu.iis.mto.bsearch;
 
 import org.junit.Test;
-import org.junit.Before;
+
 import static org.junit.Assert.*;
+
+import org.hamcrest.Matchers;
 
 public class BinarySearchTest {
 
     SearchResult searchResult;
-    int key = 1;
-    int[] seq = {-5, -1, 0, 1, 3, 4, 6, 7, 8, 9};
-
-    @Before
-    public void setup() {
-
-        searchResult = BinarySearch.search(key, seq);
-    }
+    int key = 42;
 
     @Test
-    public void searchedElementIsInSequence() {
-        int key = 42;
+    public void searchedElementIsInOneElementSequence() {
         int[] seq = {42};
 
-         searchResult = BinarySearch.search(key, seq);
-         assertEquals(searchResult.getPosition(), 1);
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(0));
     }
 
     @Test
-    public void searchedElementIsNotInSequence() {
-        int key = 42;
+    public void searchedElementIsNotInOneElementSequence() {
         int[] seq = {43};
 
         searchResult = BinarySearch.search(key, seq);
@@ -36,10 +29,33 @@ public class BinarySearchTest {
 
     @Test
     public void searchedElementIsFirstInSequence() {
-        int key = 42;
         int[] seq = {42, 43, 45};
 
         searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult, 0);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(0));
+    }
+
+    @Test
+    public void searchedElementIsLastInSequence() {
+        int[] seq = {40, 41, 42};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(seq.length - 1));
+    }
+
+    @Test
+    public void searchedElementIsMiddleInSequence() {
+        int[] seq = {41, 42, 43};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo((seq.length - 1) / 2));
+    }
+
+    @Test
+    public void searchedElementIsNotInSequence() {
+        int[] seq = {40, 41, 43};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertFalse(searchResult.isFound());
     }
 }
