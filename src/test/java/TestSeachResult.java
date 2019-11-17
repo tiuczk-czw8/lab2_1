@@ -8,24 +8,13 @@ public class TestSeachResult {
 public  void testSearch()
 {
 
-    Assert.assertEquals(true,result(15, new int[]{15}).isFound());
-    Assert.assertEquals(1,result(15, new int[]{15}).getPosition());
-
-    Assert.assertEquals(false,result(2, new int[]{15}).isFound());
-    Assert.assertEquals(-1,result(2, new int[]{15}).getPosition());
-
-    Assert.assertEquals(true, result(5, new int[]{0,2,5,12}).isFound());
-    Assert.assertEquals(3, result(5, new int[]{0,2,5,12}).getPosition());
-
-    Assert.assertEquals(true, result(12, new int[]{0,2,5,7,12}).isFound());
-    Assert.assertEquals(5, result(12, new int[]{0,2,5,7,12}).getPosition());
-
-    Assert.assertEquals(true, result(4, new int[]{4,8,11,12}).isFound());
-    Assert.assertEquals(1, result(4, new int[]{4,8,11,12}).getPosition());
-
-    Assert.assertEquals(false, result(6, new int[]{4,8,11,12}).isFound());
-    Assert.assertEquals(-1, result(6, new int[]{4,8,11,12}).getPosition());
-
+    testBoth(15,1,true,new int[]{15});
+    testBoth(2,-1,false,new int[]{15});
+    testBoth(12,5,true, new int[]{0,2,5,7,12});
+    testBoth(4,1,true, new int[]{4,8,11,12});
+    testBoth(11,3,true, new int[]{4,8,11,12});
+    testBoth(6,-1,false, new int[]{4,8,11,12});
+    
 }
 
 public SearchResult result(int key, int[] arr)
@@ -33,4 +22,9 @@ public SearchResult result(int key, int[] arr)
     return  BinarySearch.search(key, arr);
 }
 
+public void testBoth(int el, int possition, boolean isFound, int[] arr)
+{
+    Assert.assertEquals(isFound, result(el, arr).isFound());
+    Assert.assertEquals(possition, result(el, arr).getPosition());
+}
 }
