@@ -10,7 +10,6 @@ import edu.iis.mto.bsearch.BinarySearch;
 import edu.iis.mto.bsearch.SearchResult;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class BinarySearchTest {
@@ -22,6 +21,21 @@ public class BinarySearchTest {
                      .toArray(Integer[]::new);
     }
 
+    private static void testResultForTrueAssumptions(SearchResult result, int[] seq, int key, int idx) {
+        assertThat(result, instanceOf(SearchResult.class));
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), equalTo(idx));
+        assertThat(getBoxedArray(seq), hasItemInArray(key));
+        assertThat(key, equalTo(seq[idx]));
+    }
+
+    private static void testResultForFalseAssumptions(SearchResult result, int[] seq, int key) {
+        assertThat(result, instanceOf(SearchResult.class));
+        assertThat(result.isFound(), is(false));
+        assertThat(result.getPosition(), lessThanOrEqualTo(-1));
+        assertThat(getBoxedArray(seq), not(hasItemInArray(key)));
+    }
+
     @Test
     public void elementShouldBeInSequenceLength1() {
         int key = 2;
@@ -30,11 +44,7 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(true));
-        assertThat(result.getPosition(), equalTo(idx));
-        assertThat(getBoxedArray(seq), hasItemInArray(key));
-        assertThat(key, equalTo(seq[idx]));
+        testResultForTrueAssumptions(result, seq, key, idx);
     }
 
     @Test
@@ -44,13 +54,7 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        Assert.assertFalse(result.isFound());
-        Assert.assertEquals(-1, result.getPosition());
-
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(false));
-        assertThat(result.getPosition(), lessThanOrEqualTo(-1));
-        assertThat(getBoxedArray(seq), not(hasItemInArray(key)));
+        testResultForFalseAssumptions(result, seq, key);
     }
 
     @Test
@@ -61,11 +65,7 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(true));
-        assertThat(result.getPosition(), equalTo(idx));
-        assertThat(getBoxedArray(seq), hasItemInArray(key));
-        assertThat(key, equalTo(seq[idx]));
+        testResultForTrueAssumptions(result, seq, key, idx);
     }
 
     @Test
@@ -76,11 +76,7 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(true));
-        assertThat(result.getPosition(), equalTo(idx));
-        assertThat(getBoxedArray(seq), hasItemInArray(key));
-        assertThat(key, equalTo(seq[idx]));
+        testResultForTrueAssumptions(result, seq, key, idx);
     }
 
     @Test
@@ -91,11 +87,7 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(true));
-        assertThat(result.getPosition(), equalTo(idx));
-        assertThat(getBoxedArray(seq), hasItemInArray(key));
-        assertThat(key, equalTo(seq[idx]));
+        testResultForTrueAssumptions(result, seq, key, idx);
     }
 
     @Test
@@ -105,9 +97,6 @@ public class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertThat(result, instanceOf(SearchResult.class));
-        assertThat(result.isFound(), is(false));
-        assertThat(result.getPosition(), lessThanOrEqualTo(-1));
-        assertThat(getBoxedArray(seq), not(hasItemInArray(key)));
+        testResultForFalseAssumptions(result, seq, key);
     }
 }
