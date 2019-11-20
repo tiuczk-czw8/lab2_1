@@ -34,4 +34,15 @@ public class TestBinarySearch {
         assertEquals(seq.length, searchResult.getPosition());
     }
 
+    @Test
+    public void findFirstElementWhenSeqIsMoreThan1() {
+        int[] seq = {1, 2, 3, 4, 5};
+        int key = 1;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+
+        assertTrue(searchResult.isFound());
+        assertEquals(seq[searchResult.getPosition() - 1], searchResult.getPosition());
+    }
+
 }
