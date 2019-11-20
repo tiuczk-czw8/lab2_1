@@ -54,6 +54,13 @@ public class BinarySearchTest {
         checkIfIsOnPosition(searchResult.getPosition(), -1);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void checkIllegalArgumentExpectedOnEmptySeq() {
+        int key = 0;
+        int[] seq = new int[0];
+        BinarySearch.search(key, seq);
+    }
+
     private void checkIfIsFound(boolean isFound, boolean expectedBoolean) {
         assertThat(isFound, Matchers.equalTo(expectedBoolean));
     }
