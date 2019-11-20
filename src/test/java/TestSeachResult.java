@@ -23,6 +23,10 @@ public class TestSeachResult {
     }
 
 
+    @Test (expected = IllegalArgumentException.class)
+    public void testEmptySeq() {
+        result(1,new int[]{});
+    }
     public SearchResult result(int key, int[] arr)
     {
         return  BinarySearch.search(key, arr);
