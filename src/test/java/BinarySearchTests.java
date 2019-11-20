@@ -54,4 +54,18 @@ public class BinarySearchTests {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.getPosition(), Matchers.equalTo(((int) Math.ceil(seq.length / 2.0))));
     }
+    @Test
+    public void searchManyElementsFindCenter() {
+        int[] seq = {1, 2, 3, 4, 5};
+        int key = 3;
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(((int) Math.ceil(seq.length / 2.0))));
+    }
+    @Test
+    public void findCenterElementEvenSequence() {
+        int[] seq = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int key = 5;
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(((int) Math.ceil(seq.length / 2.0))));
+    }
 }
