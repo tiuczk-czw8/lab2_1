@@ -24,7 +24,7 @@ public class BinarySearchTest {
         int[] seq = {43};
 
         searchResult = BinarySearch.search(key, seq);
-        assertFalse(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.is(Boolean.FALSE));
     }
 
     @Test
@@ -56,6 +56,6 @@ public class BinarySearchTest {
         int[] seq = {40, 41, 43};
 
         searchResult = BinarySearch.search(key, seq);
-        assertFalse(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.is(Boolean.FALSE));
     }
 }
