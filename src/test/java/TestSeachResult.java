@@ -17,7 +17,6 @@ public class TestSeachResult {
     public  void testSeveralElSearch()
     {
         testBoth(12,4,true, new int[]{0,2,5,7,12});
-        testBoth(5,2,true, new int[]{0,2,5,7,12});
         testBoth(4,0,true, new int[]{4,8,11,12});
         testBoth(11,2,true, new int[]{4,8,11,12});
         testBoth(6,-1,false, new int[]{4,8,11,12});
