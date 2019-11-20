@@ -58,6 +58,16 @@ public class TestBinarySearch {
 
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(false));
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
 
+    @Test
+    public void noSequenceTest() {
+        int[] seq = new int[]{};
+        int key = 1;
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+
+    }
 }
