@@ -68,7 +68,9 @@ public class BinarySearchTest {
     public void notFindElementWhenSequenceIsEmpty() {
         int key = 11;
         int[] seq = {};
-        SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+        exceptionRule.expect(IllegalArgumentException.class);
+        exceptionRule.expectMessage("Sequence is empty");
+        BinarySearch.search(key, seq);
     }
+
 }
