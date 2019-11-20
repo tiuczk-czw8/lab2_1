@@ -62,5 +62,13 @@ public class BinarySearchTests {
         int key = 1;
         SearchResult searchResult = BinarySearch.search(key, seq);
     }
-    
+
+    @Test
+    public void searchManyElementsFindCenterNotEvenV3() {
+        int[] seq = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int key = 5;
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(((int) Math.ceil(seq.length / 2.0))));
+    }
+
 }
