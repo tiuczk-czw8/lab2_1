@@ -6,63 +6,66 @@ import static org.junit.Assert.*;
 
 public class BinarySearchTest {
 
+    private int key;
+    private int[] seq;
+
     @Test
-    public void searchSingleElementTrue() {
-        int key = 25;
-        int[] seq = {25};
+    public void searchSingleElementExpectedTrue() {
+        key = 25;
+        seq = new int[]{25};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsFound(searchResult.isFound(), true);
     }
 
     @Test
-    public void searchSingleElementFalse() {
-        int key = 25;
-        int[] seq = {24};
+    public void searchSingleElementExpectedFalse() {
+        key = 25;
+        seq = new int[]{24};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsFound(searchResult.isFound(), false);
     }
 
     @Test
     public void searchFirstElement() {
-        int key = 24;
-        int[] seq = {24, 25, 27};
+        key = 24;
+        seq = new int[]{24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsOnPosition(searchResult.getPosition(), 1);
     }
 
     @Test
     public void searchLastElement() {
-        int key = 27;
-        int[] seq = {24, 25, 27};
+        key = 27;
+        seq = new int[]{24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsOnPosition(searchResult.getPosition(), 3);
     }
 
     @Test
     public void searchMiddleElement() {
-        int key = 25;
-        int[] seq = {24, 25, 27};
+        key = 25;
+        seq = new int[]{24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsOnPosition(searchResult.getPosition(), 2);
     }
 
     @Test
-    public void searchNotFound() {
-        int key = 29;
-        int[] seq = {24, 25, 27};
+    public void searchNotFoundExpected() {
+        key = 29;
+        seq = new int[]{24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
         checkIfIsOnPosition(searchResult.getPosition(), -1);
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void checkIllegalArgumentExpectedOnEmptySeq() {
-        int key = 0;
-        int[] seq = new int[0];
+        key = 0;
+        seq = new int[0];
         BinarySearch.search(key, seq);
     }
 
     @Test
-    public void checkIfTwoSeqEquals() {
+    public void checkIfTwoSeqEqualsExpectedTrue() {
         int key1 = 24;
         int[] seq1 = {24, 25, 26};
         int key2 = 24;
@@ -73,7 +76,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void checkIfTwoSeqEqualsFalse() {
+    public void checkIfTwoSeqEqualsExpectedFalse() {
         int key1 = 24;
         int[] seq1 = {24, 25, 26};
         int key2 = 25;
