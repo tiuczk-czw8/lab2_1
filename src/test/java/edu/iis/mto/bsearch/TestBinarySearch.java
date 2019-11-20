@@ -56,4 +56,13 @@ public class TestBinarySearch {
         assertEquals((int) Math.ceil(seq.length / 2.0), searchResult.getPosition());
     }
 
+    @Test
+    public void noSuchElementInSequenceMoreThan1Fail() {
+        int[] seq = {1, 2, 3, 4, 5};
+        int key = 9;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertFalse(searchResult.isFound());
+    }
+
 }
