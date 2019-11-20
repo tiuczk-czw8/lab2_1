@@ -47,4 +47,11 @@ public class BinarySearchTest {
         assertTrue(searchResult.isFound());
     }
 
+    @Test
+    public void findMiddleElementWhenSequenceIsMoreThanOne() {
+        int key = 10;
+        int[] seq = new int[]{5, 10, 15};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(searchResult.getPosition(), 2);
+    }
 }
