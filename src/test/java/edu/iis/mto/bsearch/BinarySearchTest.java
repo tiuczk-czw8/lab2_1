@@ -66,13 +66,24 @@ public class BinarySearchTest {
 
     @Test
     public void areTheTwoSequencesTrue() {
-        int key = 8;
+        int key = 9;
         int[] seq = new int[] {9,10,11,12};
-        int key1 = 8;
+        int key1 = 9;
         int[] seq1 = new int[] {9,10,11,12};
         SearchResult result = BinarySearch.search(key, seq);
         SearchResult result1 = BinarySearch.search(key1, seq1);
         assertThat(result1.equals(result), Matchers.equalTo(true));
+    }
+
+    @Test
+    public void areTheTwoSequencesFalse() {
+        int key = 10;
+        int[] seq = new int[] {9,10,11,12};
+        int key1 = 11;
+        int[] seq1 = new int[] {9,10,11,12};
+        SearchResult result = BinarySearch.search(key, seq);
+        SearchResult result1 = BinarySearch.search(key1, seq1);
+        assertThat(result1.equals(result), Matchers.equalTo(false));
     }
 
 }
