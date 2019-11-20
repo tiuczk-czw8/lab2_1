@@ -63,4 +63,12 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
+
+    @Test
+    public void notFindElementWhenSequenceIsEmpty() {
+        int key = 11;
+        int[] seq = {};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+    }
 }
