@@ -1,5 +1,6 @@
 package edu.iis.mto.bsearch;
 
+import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -17,8 +18,8 @@ public class BinarySearchTest {
         int key = 10;
         int[] seq = {10};
         SearchResult result = BinarySearch.search(key, seq);
-        assertTrue(result.isFound());
-        assertEquals(result.getPosition(), 1);
+        assertThat(result.isFound(), Matchers.equalTo(true));
+        assertThat(result.getPosition(), Matchers.equalTo(1));
     }
 
     @Test
@@ -26,7 +27,7 @@ public class BinarySearchTest {
         int[] seq = {10};
         int key = 9;
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertFalse(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
 
     @Test
@@ -34,7 +35,7 @@ public class BinarySearchTest {
         int key = 3;
         int[] seq = {3, 5, 10};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), 1);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
     }
 
     @Test
@@ -43,8 +44,8 @@ public class BinarySearchTest {
         int key = 23;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(seq.length, searchResult.getPosition());
-        assertTrue(searchResult.isFound());
+        assertThat(seq.length, Matchers.equalTo(searchResult.getPosition()));
+        assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
 
     @Test
@@ -52,7 +53,7 @@ public class BinarySearchTest {
         int key = 10;
         int[] seq = new int[]{5, 10, 15};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), 2);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(2));
     }
 
     @Test
@@ -60,6 +61,6 @@ public class BinarySearchTest {
         int key = 11;
         int[] seq = new int[]{5, 10, 15};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition(), -1);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
 }
