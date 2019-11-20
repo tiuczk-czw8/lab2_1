@@ -11,8 +11,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {25};
         SearchResult searchResult = BinarySearch.search(key, seq);
-//        assertTrue(searchResult.isFound());
-        assertThat(searchResult.isFound(), Matchers.equalTo(true));
+        checkIfIsFound(searchResult.isFound(), true);
     }
 
     @Test
@@ -20,7 +19,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {24};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.isFound(), Matchers.equalTo(false));
+        checkIfIsFound(searchResult.isFound(), false);
     }
 
     @Test
@@ -55,10 +54,7 @@ public class BinarySearchTest {
         assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
 
-    @Test (expected = IllegalArgumentException.class)
-    public void isSeqSizeHigherThanZero() {
-        int key = 1;
-        int[] seq = {};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+    private void checkIfIsFound(boolean isFound, boolean expectedBoolean) {
+        assertThat(isFound, Matchers.equalTo(expectedBoolean));
     }
 }
