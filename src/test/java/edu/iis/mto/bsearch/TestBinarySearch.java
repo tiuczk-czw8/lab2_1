@@ -2,7 +2,7 @@ package edu.iis.mto.bsearch;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.is;
+
 import static org.junit.Assert.assertThat;
 
 public class TestBinarySearch {
@@ -61,7 +61,7 @@ public class TestBinarySearch {
         assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void noSequenceTestV2() {
         int[] seq = new int[]{};
         int key = 1;
@@ -69,4 +69,14 @@ public class TestBinarySearch {
         searchResult.toString();
 
     }
+
+    @Test
+    public void findMiddleElementWhenSeqIsMoreThan1NotEvenV3() {
+        int[] seq = {1, 2, 3, 4, 5, 6, 7, 8};
+        int key = 4;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo((int) Math.ceil(seq.length / 2.0)));
+    }
+
 }
