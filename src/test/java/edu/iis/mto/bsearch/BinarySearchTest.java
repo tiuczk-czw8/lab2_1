@@ -54,4 +54,12 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertEquals(searchResult.getPosition(), 2);
     }
+
+    @Test
+    public void notFindElementWhenSequenceIsMoreThanOne() {
+        int key = 11;
+        int[] seq = new int[]{5, 10, 15};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(searchResult.getPosition(), -1);
+    }
 }
