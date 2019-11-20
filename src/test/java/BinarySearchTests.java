@@ -22,4 +22,11 @@ public class BinarySearchTests {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
+    @Test
+    public void manyElementsNotInSequence() {
+        int[] seq = {1, 2, 3, 4, 5};
+        int key = 6;
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
+    }
 }
