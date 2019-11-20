@@ -152,4 +152,28 @@ public class BinarySearchTest {
 
         BinarySearch.search(0, seq);
     }
+
+    @Test
+    public void notSortedSequenceShouldBeRejected() {
+        int[] seq = new int[] {4, 3, 2, 1};
+        int key = 2;
+
+        SearchResult result = BinarySearch.search(key, seq);
+
+        assertThat(seq.length, greaterThan(0));
+        assertThat(hasConsecutiveValues(seq), is(false));
+        assertThat(result.getPosition(), is(lessThanOrEqualTo(-1)));
+    }
+
+    @Test
+    public void notUniqueValuesSequenceShouldBeRejected() {
+        int[] seq = new int[] {1, 4, 4, 5};
+        int key = 2;
+
+        SearchResult result = BinarySearch.search(key, seq);
+
+        assertThat(seq.length, greaterThan(0));
+        assertThat(hasConsecutiveValues(seq), is(false));
+        assertThat(result.getPosition(), is(lessThanOrEqualTo(-1)));
+    }
 }
