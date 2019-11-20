@@ -13,5 +13,13 @@ public class TestBinarySearch {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertFalse(searchResult.isFound());
     }
+    @Test
+    public void oneElementInSequenceSuccess() {
+        int[] seq = {1};
+        int key = 1;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertTrue(searchResult.isFound());
+    }
 
 }
