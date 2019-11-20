@@ -16,4 +16,15 @@ public class BinarySearchTest {
         Assert.assertEquals(idx, result.getPosition());
         Assert.assertEquals(key, seq[idx]);
     }
+
+    @Test
+    public void ElementNotInSeqLength1()  {
+        int key = 2;
+        int[] seq = new int[]{3};
+
+        SearchResult result = BinarySearch.search(key, seq);
+
+        Assert.assertFalse(result.isFound());
+        Assert.assertEquals(-1, result.getPosition());
+    }
 }
