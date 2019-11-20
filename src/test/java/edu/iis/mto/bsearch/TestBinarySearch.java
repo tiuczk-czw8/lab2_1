@@ -2,8 +2,8 @@ package edu.iis.mto.bsearch;
 
 import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class TestBinarySearch {
     @Test
@@ -61,13 +61,12 @@ public class TestBinarySearch {
         assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
     }
 
-    @Test
-    public void noSequenceTest() {
+    @Test (expected = IllegalArgumentException.class)
+    public void noSequenceTestV2() {
         int[] seq = new int[]{};
         int key = 1;
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.isFound(), Matchers.equalTo(false));
-        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+        searchResult.toString();
 
     }
 }
