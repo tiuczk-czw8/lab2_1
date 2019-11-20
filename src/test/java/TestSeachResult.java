@@ -1,7 +1,9 @@
 import edu.iis.mto.bsearch.BinarySearch;
 import edu.iis.mto.bsearch.SearchResult;
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 public class TestSeachResult {
     @Test
@@ -28,7 +30,7 @@ public class TestSeachResult {
 
     public void testBoth(int el, int position, boolean isFound, int[] arr)
     {
-        Assert.assertEquals(isFound, result(el, arr).isFound());
-        Assert.assertEquals(position, result(el, arr).getPosition());
+        Assert.assertThat(result(el, arr).isFound(), Matchers.equalTo(isFound));
+        Assert.assertThat(result(el, arr).getPosition(), Matchers.equalTo(position));
     }
 }
