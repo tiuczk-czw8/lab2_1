@@ -21,7 +21,7 @@ public class TestBinarySearch {
         int key = 1;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertTrue(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
 
     @Test
@@ -30,9 +30,7 @@ public class TestBinarySearch {
         int key = 5;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-
-        assertTrue(searchResult.isFound());
-        assertEquals(seq.length, searchResult.getPosition());
+        assertThat(searchResult.getPosition(), Matchers.equalTo(5));
     }
 
     @Test
@@ -41,9 +39,7 @@ public class TestBinarySearch {
         int key = 1;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-
-        assertTrue(searchResult.isFound());
-        assertEquals(seq[searchResult.getPosition() - 1], searchResult.getPosition());
+        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
     }
 
     @Test
@@ -52,9 +48,7 @@ public class TestBinarySearch {
         int key = 3;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-
-        assertTrue(searchResult.isFound());
-        assertEquals((int) Math.ceil(seq.length / 2.0), searchResult.getPosition());
+        assertThat(searchResult.getPosition(), Matchers.equalTo((int) Math.ceil(seq.length / 2.0)));
     }
 
     @Test
@@ -63,7 +57,7 @@ public class TestBinarySearch {
         int key = 9;
 
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertFalse(searchResult.isFound());
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
 
 }
