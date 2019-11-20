@@ -64,6 +64,28 @@ public class BinarySearchTest {
 
     }
     
+    @Test
+    public void checkTwoSequencesTrue() {
+    	key = 26;
+        set = new int[]{25,26,27};
+        int key2 = 26;
+        int [] set2 = new int[]{25,26,27};
+        SearchResult result1 = BinarySearch.search(key, set);
+        SearchResult result2 = BinarySearch.search(key2, set2);
+        assertThat(result1.equals(result2), Matchers.equalTo(true));
+    }
+    
+    @Test
+    public void checkTwoSequencesfalse() {
+    	key = 26;
+        set = new int[]{25,26,27};
+        int key2 = 27;
+        int [] set2 = new int[]{25,26,27};
+        SearchResult result1 = BinarySearch.search(key, set);
+        SearchResult result2 = BinarySearch.search(key2, set2);
+        assertThat(result1.equals(result2), Matchers.equalTo(false)); 
+    }
+    
     private void isInExpectedPosition(int key, int[] seq, int position) {
     	assertThat(BinarySearch.search(key,seq).getPosition(),Matchers.equalTo(position));
     }
