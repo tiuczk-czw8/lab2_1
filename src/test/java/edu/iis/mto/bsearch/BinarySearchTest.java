@@ -57,12 +57,12 @@ public class BinarySearchTest {
 
     }
 
-    @Test
-    public void isSeqEmpty(){
+    @Test (expected = IllegalArgumentException.class)
+    public void isSequenceEmpty() {
         int key = 10;
-        int [] seq={};
-        SearchResult searchResult = BinarySearch.search(key,seq);
-        assertThat(seq.length,Matchers.equalTo(0));
+        int[] seq = {};
+        BinarySearch.search(key, seq);
     }
+
 
 }
