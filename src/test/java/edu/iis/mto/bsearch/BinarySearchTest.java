@@ -27,7 +27,7 @@ public class BinarySearchTest {
         int key = 24;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
+        checkIfIsOnPosition(searchResult.getPosition(), 1);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class BinarySearchTest {
         int key = 27;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.getPosition(), Matchers.equalTo(3));
+        checkIfIsOnPosition(searchResult.getPosition(), 3);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class BinarySearchTest {
         int key = 25;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.getPosition(), Matchers.equalTo(2));
+        checkIfIsOnPosition(searchResult.getPosition(), 2);
     }
 
     @Test
@@ -51,10 +51,14 @@ public class BinarySearchTest {
         int key = 29;
         int[] seq = {24, 25, 27};
         SearchResult searchResult = BinarySearch.search(key, seq);
-        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+        checkIfIsOnPosition(searchResult.getPosition(), -1);
     }
 
     private void checkIfIsFound(boolean isFound, boolean expectedBoolean) {
         assertThat(isFound, Matchers.equalTo(expectedBoolean));
+    }
+
+    private void checkIfIsOnPosition(int positionInSeq, int expectedPosition) {
+        assertThat(positionInSeq, Matchers.equalTo(expectedPosition));
     }
 }
