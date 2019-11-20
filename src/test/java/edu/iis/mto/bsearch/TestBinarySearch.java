@@ -13,6 +13,7 @@ public class TestBinarySearch {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertFalse(searchResult.isFound());
     }
+
     @Test
     public void oneElementInSequenceSuccess() {
         int[] seq = {1};
@@ -20,6 +21,17 @@ public class TestBinarySearch {
 
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertTrue(searchResult.isFound());
+    }
+
+    @Test
+    public void findLastElementWhenSeqIsMoreThan1() {
+        int[] seq = {1, 2, 3, 4, 5};
+        int key = 5;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+
+        assertTrue(searchResult.isFound());
+        assertEquals(seq.length, searchResult.getPosition());
     }
 
 }
