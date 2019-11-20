@@ -3,7 +3,6 @@ import edu.iis.mto.bsearch.SearchResult;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 public class BinarySearchTests {
 
@@ -57,6 +56,13 @@ public class BinarySearchTests {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertTrue(searchResult.isFound());
         assertEquals((int) Math.ceil(seq.length / 2.0), searchResult.getPosition());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void seqZeroElements() {
+        int[] seq = {};
+        int key = 1;
+        SearchResult searchResult = BinarySearch.search(key, seq);
     }
 
 }
