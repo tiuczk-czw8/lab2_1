@@ -18,7 +18,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void ElementNotInSeq()  {
+    public void ElementNotInSeqLength1()  {
         int key = 2;
         int[] seq = new int[]{3};
 
@@ -65,5 +65,16 @@ public class BinarySearchTest {
         Assert.assertTrue(result.isFound());
         Assert.assertEquals(idx, result.getPosition());
         Assert.assertEquals(key, seq[idx]);
+    }
+
+    @Test
+    public  void ElementNotInSeq() {
+        int key = 5;
+        int[] seq = new int[]{1, 2, 3, 4};
+
+        SearchResult result = BinarySearch.search(key, seq);
+
+        Assert.assertFalse(result.isFound());
+        Assert.assertEquals(-1, result.getPosition());
     }
 }
