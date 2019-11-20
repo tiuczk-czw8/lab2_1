@@ -28,7 +28,6 @@ public class BinarySearchTest {
     {
     	key = 25;
         set = new int[]{25,26,27};
-        SearchResult result = BinarySearch.search(key,set);
         isInExpectedPosition(key,set,1);
     }
 
@@ -37,7 +36,6 @@ public class BinarySearchTest {
     {
         key = 27;
         set = new int[]{25,26,27};
-        SearchResult result = BinarySearch.search(key,set);
         isInExpectedPosition(key,set,3);
     }
 
@@ -45,7 +43,6 @@ public class BinarySearchTest {
     public void searchInMultiSeqMiddle() {
         key = 26;
         set = new int[]{25,26,27};
-        SearchResult result = BinarySearch.search(key,set);
         isInExpectedPosition(key,set,2);
     }
 
@@ -72,7 +69,7 @@ public class BinarySearchTest {
         int [] set2 = new int[]{25,26,27};
         SearchResult result1 = BinarySearch.search(key, set);
         SearchResult result2 = BinarySearch.search(key2, set2);
-        assertThat(result1.equals(result2), Matchers.equalTo(true));
+        areResultsSame(result1,result2, false);
     }
     
     @Test
@@ -83,7 +80,7 @@ public class BinarySearchTest {
         int [] set2 = new int[]{25,26,27};
         SearchResult result1 = BinarySearch.search(key, set);
         SearchResult result2 = BinarySearch.search(key2, set2);
-        assertThat(result1.equals(result2), Matchers.equalTo(false)); 
+        areResultsSame(result1,result2, false);
     }
     
     private void isInExpectedPosition(int key, int[] seq, int position) {
@@ -92,6 +89,10 @@ public class BinarySearchTest {
     
     private void isInSequence(int key, int[] seq, boolean isIt) {
     	assertThat(BinarySearch.search(key,seq).isFound(),Matchers.equalTo(isIt));
+    }
+    
+    private void areResultsSame(SearchResult result1, SearchResult result2, boolean isIt) {
+    	assertThat(result1.equals(result2), Matchers.equalTo(isIt)); 
     }
 
 }
