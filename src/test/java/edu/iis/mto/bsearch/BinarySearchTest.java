@@ -52,10 +52,43 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void searchedElementIsNotInSequence() {
+    public void searchedElementIsNotInOddSequence() {
         int[] seq = {40, 41, 43};
 
         searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.is(Boolean.FALSE));
+    }
+
+    @Test
+    public void searchedElementInEmptySequence() {
+        int[] seq = {};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.is(Boolean.FALSE));
+    }
+
+    @Test
+    public void searchedElementIsNotInEvenSequence() {
+        int[] seq = {39, 40, 41, 43};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.is(Boolean.FALSE));
+    }
+
+    @Test
+    public void searchedElementIsAnywhereInSequence() {
+        int[] seq = {39, 40, 41, 42, 43};
+
+        searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(findIndex(seq, key)));
+    }
+
+    public int findIndex(int[] array, int value) {
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
