@@ -37,4 +37,14 @@ public class BinarySearchTest {
         assertEquals(searchResult.getPosition(), 1);
     }
 
+    @Test
+    public void findLastElementWhenSequenceIsMoreThanOne() {
+        int[] seq = {10, 5, 23};
+        int key = 23;
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(seq.length, searchResult.getPosition());
+        assertTrue(searchResult.isFound());
+    }
+
 }
