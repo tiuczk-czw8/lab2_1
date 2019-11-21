@@ -15,7 +15,6 @@ public class BinarySearchTest {
         int[] seq = new int[]{key};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.isFound(), Matchers.equalTo(true));
     }
 
@@ -26,7 +25,6 @@ public class BinarySearchTest {
         int[] seq = new int[]{3};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.isFound(), Matchers.equalTo(false));
     }
 
@@ -36,7 +34,6 @@ public class BinarySearchTest {
         int[] seq = new int[]{1, key, 3};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.getPosition(), Matchers.equalTo(1));
     }
 
@@ -46,7 +43,6 @@ public class BinarySearchTest {
         int[] seq = new int[]{key, 3, 4};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.getPosition(), Matchers.equalTo(0));
     }
 
@@ -56,7 +52,6 @@ public class BinarySearchTest {
         int[] seq = new int[]{1, 2, 3, 4};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.getPosition(), Matchers.equalTo(3));
     }
 
@@ -66,17 +61,40 @@ public class BinarySearchTest {
         int[] seq = new int[]{1, 2, 3, 4};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.getPosition(), Matchers.equalTo(-1));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void SeqIsEmpty() {
         int key = 1;
         int[] seq = new int[]{};
 
         SearchResult result = BinarySearch.search(key, seq);
-
         assertThat(result.getPosition(), Matchers.equalTo(-1));
     }
+
+    @Test
+    public void ElementIsInTwoDifferentSeq() {
+        int key = 11;
+        int[] seq = new int[] {11,12,13,14};
+        int key1 = 11;
+        int[] seq1 = new int[] {9,10,11,12};
+
+        SearchResult result = BinarySearch.search(key, seq);
+        SearchResult result1 = BinarySearch.search(key1, seq1);
+        assertThat(result1.equals(result), Matchers.equalTo(false));
+    }
+
+    @Test
+    public void ElementIsInTwoSeq() {
+        int key = 11;
+        int[] seq = new int[] {11,12,13,14};
+        int key1 = 11;
+        int[] seq1 = new int[] {11,12,13,14};
+
+        SearchResult result = BinarySearch.search(key, seq);
+        SearchResult result1 = BinarySearch.search(key1, seq1);
+        assertThat(result1.equals(result), Matchers.equalTo(true));
+    }
+
 }
