@@ -7,6 +7,11 @@ import org.junit.Test;
 
 public class BinarySearchTest {
 
+    @Test (expected = IllegalArgumentException.class)
+    public void emptySequence() {
+        BinarySearch.search(1, new int[]{});
+    }
+
     @Test
     public void elementIn1ElementSequence() {
         testBinarySearch(1, new int[]{1}, true, 0);
