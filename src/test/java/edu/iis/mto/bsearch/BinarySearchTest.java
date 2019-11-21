@@ -58,6 +58,7 @@ public class BinarySearchTest {
         testEquivalence(BinarySearch.search(4, new int[]{1, 2, 3, 4, 5, 6}), BinarySearch.search(2, new int[]{1, 1, 2, 4}), false);
     }
 
+
     public void testBinarySearch(int key, int[] seq, boolean isFound, int position) {
         assertThat(BinarySearch.search(key, seq).isFound(), Matchers.equalTo(isFound));
         assertThat(BinarySearch.search(key, seq).getPosition(), Matchers.equalTo(position));
