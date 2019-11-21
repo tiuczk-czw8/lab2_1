@@ -25,8 +25,9 @@ public class BinarySearch {
         int start = 0;
         int end = seq.length - 1;
         if(end < 0)
+        {
         	throw new IllegalArgumentException();
-        
+        }
         int center;
         SearchResult result = new SearchResult();
 
