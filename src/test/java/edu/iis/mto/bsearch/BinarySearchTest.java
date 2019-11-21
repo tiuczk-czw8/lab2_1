@@ -1,6 +1,7 @@
 package edu.iis.mto.bsearch;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import org.hamcrest.Matchers;
 
 import org.junit.Test;
 
@@ -17,8 +18,8 @@ public class BinarySearchTest {
     }
 
     public void testBinarySearch(int key, int[] seq, boolean isFound, int position) {
-        assertEquals(BinarySearch.search(key, seq).isFound(), isFound);
-        assertEquals(BinarySearch.search(key, seq).getPosition(), position);
+        assertThat(BinarySearch.search(key, seq).isFound(), Matchers.equalTo(isFound));
+        assertThat(BinarySearch.search(key, seq).getPosition(), Matchers.equalTo(position));
     }
 
 }
