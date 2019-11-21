@@ -34,22 +34,22 @@ public class BinarySearchTest {
     @Test
     public void searchInMultiSeqLast()
     {
-        key = 27;
-        set = new int[]{25,26,27};
+        key = 653;
+        set = new int[]{231,345,842,653};
         isInExpectedPosition(key,set,3);
     }
 
     @Test
     public void searchInMultiSeqMiddle() {
-        key = 26;
-        set = new int[]{25,26,27};
+        key = 3;
+        set = new int[]{2,3,4};
         isInExpectedPosition(key,set,2);
     }
 
     @Test
     public void searchInMultiSeqNotFound() {
-        key = 28;
-        set = new int[]{25,26,27};
+        key = 29;
+        set = new int[]{1,23,28,123};
         isInSequence(key,set,false);
     }
     
@@ -63,10 +63,10 @@ public class BinarySearchTest {
     
     @Test
     public void checkTwoSequencesTrue() {
-    	key = 26;
-        set = new int[]{25,26,27};
-        int key2 = 26;
-        int [] set2 = new int[]{25,26,27};
+    	key = 226;
+        set = new int[]{225,226,227};
+        int key2 = 226;
+        int [] set2 = new int[]{225,226,227};
         SearchResult result1 = BinarySearch.search(key, set);
         SearchResult result2 = BinarySearch.search(key2, set2);
         areResultsSame(result1,result2, false);
@@ -74,10 +74,10 @@ public class BinarySearchTest {
     
     @Test
     public void checkTwoSequencesfalse() {
-    	key = 26;
-        set = new int[]{25,26,27};
-        int key2 = 27;
-        int [] set2 = new int[]{25,26,27};
+    	key = 236;
+        set = new int[]{235,236,237,238};
+        int key2 = 237;
+        int [] set2 = new int[]{235,236,237,238};
         SearchResult result1 = BinarySearch.search(key, set);
         SearchResult result2 = BinarySearch.search(key2, set2);
         areResultsSame(result1,result2, false);
