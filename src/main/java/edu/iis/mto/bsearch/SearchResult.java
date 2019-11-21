@@ -11,7 +11,7 @@ public class SearchResult {
 	public boolean isFound() {
 		return position > NOT_FOUND;
 	}
-
+ 
 	void setPosition(int position) {
 		if (position > NOT_FOUND) {
 			this.position = position;
