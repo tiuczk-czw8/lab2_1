@@ -41,6 +41,13 @@ public class BinarySearchTest {
     }
 
     @Test
+    public void middleElementInEvenSequence() {
+        testBinarySearch(2, new int[]{1, 2, 3, 4}, true, 1);
+        testBinarySearch(3, new int[]{1, 2, 3, 4}, true, 2);
+        testBinarySearch(4, new int[]{1, 2, 3, 4, 5, 6}, true, 3);
+    }
+
+    @Test
     public void equivalentResults() {
         testEquivalence(BinarySearch.search(3, new int[]{1, 2, 3, 4, 5}), BinarySearch.search(2, new int[]{1, 1, 2, 4}), true);
         testEquivalence(BinarySearch.search(4, new int[]{1, 2, 3, 4, 5, 6}), BinarySearch.search(2, new int[]{1, 1, 2, 4}), false);
