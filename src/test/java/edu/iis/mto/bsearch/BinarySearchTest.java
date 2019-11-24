@@ -18,5 +18,11 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
-
+    @Test
+    public void searchFirstElementFound() {
+        int key = 50;
+        int[] seq = {50, 51, 52};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
+    }
 }
