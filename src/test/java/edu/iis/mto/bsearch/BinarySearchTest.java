@@ -39,4 +39,11 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.getPosition(), Matchers.equalTo(2));
     }
+    @Test
+    public void searchElementNotFound() {
+        int key = 50;
+        int[] seq = {51, 52, 53};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(-1));
+    }
 }
