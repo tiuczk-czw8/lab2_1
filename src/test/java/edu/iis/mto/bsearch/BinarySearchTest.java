@@ -52,4 +52,14 @@ public class BinarySearchTest {
         int[] seq = {};
         BinarySearch.search(key, seq);
     }
+    @Test
+    public void areTheTwoSequencesTrue() {
+        int key = 50;
+        int[] seq = new int[] {50,51,52,53};
+        int key1 = 50;
+        int[] seq1 = new int[] {50,51,52,53};
+        SearchResult result = BinarySearch.search(key, seq);
+        SearchResult result1 = BinarySearch.search(key1, seq1);
+        assertThat(result1.equals(result), Matchers.equalTo(true));
+    }
 }
