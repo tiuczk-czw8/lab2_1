@@ -23,6 +23,13 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(false));
     }
+    @Test
+    public void searchFirstElementFound() {
+        int key = 60;
+        int[] seq = {60, 61, 62};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(1));
+    }
 
 
 
