@@ -16,6 +16,13 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.isFound(), Matchers.equalTo(true));
     }
+    @Test
+    public void searchSingleElementNotFound() {
+        int key = 60;
+        int[] seq = {5};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.isFound(), Matchers.equalTo(false));
+    }
 
 
 
