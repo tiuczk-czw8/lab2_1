@@ -30,6 +30,14 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.getPosition(), Matchers.equalTo(1));
     }
+    @Test
+    public void searchLastElementFound() {
+        int key = 60;
+        int[] seq = {58, 59, 60};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(3));
+    }
+
 
 
 
