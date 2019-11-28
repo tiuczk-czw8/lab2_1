@@ -37,6 +37,13 @@ public class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertThat(searchResult.getPosition(), Matchers.equalTo(3));
     }
+    @Test
+    public void searchMiddleElementFound() {
+        int key = 60;
+        int[] seq = {61, 60, 62};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertThat(searchResult.getPosition(), Matchers.equalTo(2));
+    }
 
 
 
