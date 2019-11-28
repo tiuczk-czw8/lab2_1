@@ -68,6 +68,16 @@ public class BinarySearchTest {
         SearchResult result1 = BinarySearch.search(key1, seq1);
         assertThat(result1.equals(result), Matchers.equalTo(true));
     }
+    @Test
+    public void areTheTwoSequencesFalse() {
+        int key = 60;
+        int[] seq = new int[] {59,60,61,62};
+        int key1 = 61;
+        int[] seq1 = new int[] {59,60,61,62};
+        SearchResult result = BinarySearch.search(key, seq);
+        SearchResult result1 = BinarySearch.search(key1, seq1);
+        assertThat(result1.equals(result), Matchers.equalTo(false));
+    }
 
 
 
