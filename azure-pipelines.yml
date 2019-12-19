@@ -13,7 +13,7 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'tiucz_azure_devops'
+    SonarCloud: 'tiucz_azure_devops123'
     organization: 'tiuczkpolityn'
     scannerMode: 'Other'
 
