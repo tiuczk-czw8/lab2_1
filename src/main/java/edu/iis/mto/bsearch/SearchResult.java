@@ -33,7 +33,7 @@ public class SearchResult {
 	@Override
 	public int hashcode()
 	{
-		return.super.hashCode();
+		return super.hashCode();
 	}
 	@Override
 	public String toString() {
