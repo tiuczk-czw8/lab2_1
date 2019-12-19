@@ -8,6 +8,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<jdk.version>1.8</jdk.version>
 		<junit.version>4.12</junit.version>
+	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	  	<sonar.organization>sticz123</sonar.organization>
+	  	<sonar.projectKey>sticz123</sonar.projectKey>
 	</properties>
   <dependencies>		
 		<dependency>
@@ -36,7 +39,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
-			        <groupId>sticz123</groupId>
+			        <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.6.0.1398</version>
 			</plugin>
