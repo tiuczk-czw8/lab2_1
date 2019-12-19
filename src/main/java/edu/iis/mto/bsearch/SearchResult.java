@@ -30,7 +30,11 @@ public class SearchResult {
 		}
 		return false;
 	}
-
+	@Override
+	public int hashcode()
+	{
+		return.super.hashCode();
+	}
 	@Override
 	public String toString() {
 
