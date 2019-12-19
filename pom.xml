@@ -35,9 +35,11 @@
 					</compilerArgs>
 				</configuration>
 			</plugin>
-			        <groupId>org.sonarsource.scanner.maven</groupId>
+			<plugin>
+			        <groupId>sticz123</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.6.0.1398</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
