@@ -31,7 +31,7 @@ public class SearchResult {
 		return false;
 	}
 	@Override
-	public int hashcode()
+	public int hashCode()
 	{
 		return super.hashCode();
 	}
