@@ -16,7 +16,6 @@ steps:
     SonarCloud: 'tiucz_azure_devops'
     organization: 'tiuczkpolityn'
     scannerMode: 'Other'
-
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
