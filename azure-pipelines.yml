@@ -13,9 +13,6 @@ pool:
 steps:
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'tiucz_azure_devops123'
-- task: SonarCloudPrepare@1
-  inputs:
     SonarCloud: 'enSonarCloudCon'
     organization: 'yevheniinokhrinorg'
     scannerMode: 'MSBuild'
