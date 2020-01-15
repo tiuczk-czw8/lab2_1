@@ -21,8 +21,7 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'yevheniinokhrin_lab2_1'
     projectName: 'yevheniinokhrin_lab2_1'
-    organization: 'tiuczkpolityn'
-    scannerMode: 'Other'
+
 
 - task: Maven@3
   inputs:
